@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VisionFlowAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d8149c9e22ce81fc4543f881e1d45bce31816df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25ef6164afe8be6263f43e094cb4537c01a6144c")]
 [assembly: System.Reflection.AssemblyProductAttribute("VisionFlowAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VisionFlowAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

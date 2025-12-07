@@ -1,31 +1,22 @@
-using Microsoft.OpenApi.Models;
+using DotNetEnv;
+using Microsoft.EntityFrameworkCore;
+using VisionFlowAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load .env
+Env.Load();
+
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(connectionString)
+);
+
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "VisionFlow API",
-        Version = "v1",
-        Description = "VisionFlowAPI: Video processing and ML analysis API"
-    });
-});
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "VisionFlow API v1");
-    });
-}
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
